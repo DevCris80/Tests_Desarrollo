@@ -1,6 +1,7 @@
 import pytest
 from src.matrix.matrix import Matrix
 
+
 class TestMatrix:
     def setup_method(self):
         self.matrix = Matrix()
@@ -83,7 +84,10 @@ class TestMatrix:
         assert self.matrix.multiplicar_escalar([[1, 2], [3, 4]], 0) == [[0, 0], [0, 0]]
 
         # Test con escalar negativo
-        assert self.matrix.multiplicar_escalar([[1, -2], [3, -4]], -1) == [[-1, 2], [-3, 4]]
+        assert self.matrix.multiplicar_escalar([[1, -2], [3, -4]], -1) == [
+            [-1, 2],
+            [-3, 4],
+        ]
 
         # Test con matriz 1x1
         assert self.matrix.multiplicar_escalar([[5]], 4) == [[20]]
@@ -189,7 +193,7 @@ class TestMatrix:
 
         # Test con valores generales
         M3 = [[2, -1, 0], [1, 3, -2], [0, 1, 4]]
-        assert self.matrix.determinante_3x3(M3) == 30
+        assert self.matrix.determinante_3x3(M3) == 32
 
         # Test con matriz no 3x3 (debe lanzar ValueError)
         with pytest.raises(ValueError):
